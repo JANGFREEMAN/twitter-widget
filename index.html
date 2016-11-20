@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Twitter Widget</title>
+    <style>
+      body {
+        margin: 0;
+        background: #fff url(./img/bg.jpg);
+        background-size:  cover;
+        color: #4c4c4c;
+      }
+
+      /*
+        清除浮动
+      */
+      .cf:after, .cf:before{
+        content: '';
+        display: table;
+        clear: both;
+      }
+
+      .tweet-wiget {
+        height:249px;
+        width: 446px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin: -125px 0 0 -223px;
+        box-shadow: 1px 1px 16px rgba(37, 35, 35, 0.58);
+        border-radius: 2px
+      }
+      .header {
+        background: url('./img/bg-header.jpg') no-repeat;
+        font : 12px/17px 'HelveticaNeue-UltraLight', Helvetica, Arial, sans-serif;
+        color: #fcfcfc;
+        padding: 18px 28px 20px;
+        border-radius: 2px 2px 0 0 ;
+      }
+      .header h2, .header p{
+        float: left;
+        width: 288px;
+      }
+      .avatar {
+        border: 4px solid #29c6f5;
+        border-top-width: 3px;
+        float: left;
+        margin-right: 16px;
+        box-shadow: 0 1px 1px rgba(0,0,0,.6), 0 -1px 0 #9ce5fa;
+        border-radius: 2px;
+        position: relative;;
+      }
+      .avatar:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        box-shadow: 0 1px 3px rgba(0,0,0,.4) inset;
+        -moz-box-shadow: 0 1px 3px rgba(0,0,0,.4) inset;
+        -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.4) inset;
+      }
+      .avatar img{
+        display: block;
+        box-shadow: 0 0 2px rgba(0,0,0,.5) inset;
+      }
+      .header h2{
+        font-size: 26px;
+        line-height: 32px;
+        margin: 10px 0 -13px;
+      }
+
+      .stats {
+        background: linear-gradient(to bottom, rgba(243,243,243,1) 0%,rgba(236,236,237,1) 100%);
+        border-top: 1px solid #fff;
+        border-bottom: 1px solid #d4d4d4
+      }
+
+      .stat:first-child {
+        margin-left: 1px;
+      }
+
+      .state{
+        color: #4c4c4c;
+        float: left;
+        line-height: 17px;
+        padding: 15px 0 14px;
+        text-align: center;
+        text-decoration: none;
+        text-shadow: 0 1px 0 #fff;
+        width: 148px;
+      }
+      .state strong {
+        display: block;
+        font-size: 25px;
+        line-height: 25px;
+      }
+
+      .menu{
+        background: rgb(236,236,236);
+      	background: -moz-linear-gradient(top, rgba(236,236,236,1) 0%, rgba(233,233,233,1) 86%, rgba(232,232,232,1) 94%, rgba(228,228,228,1) 100%);
+      	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(236,236,236,1)), color-stop(86%,rgba(233,233,233,1)), color-stop(94%,rgba(232,232,232,1)), color-stop(100%,rgba(228,228,228,1)));
+      	background: -webkit-linear-gradient(top, rgba(236,236,236,1) 0%,rgba(233,233,233,1) 86%,rgba(232,232,232,1) 94%,rgba(228,228,228,1) 100%);
+      	background: -o-linear-gradient(top, rgba(236,236,236,1) 0%,rgba(233,233,233,1) 86%,rgba(232,232,232,1) 94%,rgba(228,228,228,1) 100%);
+      	background: -ms-linear-gradient(top, rgba(236,236,236,1) 0%,rgba(233,233,233,1) 86%,rgba(232,232,232,1) 94%,rgba(228,228,228,1) 100%);
+      	background: linear-gradient(to bottom, rgba(236,236,236,1) 0%,rgba(233,233,233,1) 86%,rgba(232,232,232,1) 94%,rgba(228,228,228,1) 100%);
+      	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ececec', endColorstr='#e4e4e4',GradientType=0 );
+      	border-top:1px solid #fff;
+      	border-radius:0 0 2px 2px;
+      	padding: 11px 0;
+      	text-align: center;
+        margin-top: 0px;
+      }
+      .menu li{
+        display: inline-block;
+        margin: 0 34px;
+      }
+      .menu a{
+        background: url("./img/icons.png") no-repeat;
+        display: block;
+        overflow: hidden;
+        text-indent: -999999999px;
+      }
+      .menu .ico-compose {
+          background-position: -1px -2px;
+          width: 25px;
+          height: 26px;
+      }
+      .menu .ico-mentions {
+        background-position: -31px -1px;
+        width: 27px;
+        height: 28px;
+      }
+      .menu .ico-profile {
+        background-position: -65px -1px;
+        width: 24px;
+        height: 27px;
+      }
+      .menu .ico-settings {
+        background-position: -97px -2px;
+        width: 26px;
+        height: 27px;
+      }
+      .menu a:hover {
+        opacity:.75
+      }
+    </style>
+  </head>
+  <body>
+      <div class = 'tweet-wiget'>
+          <div class = "header cf">
+            <a class = "avatar"><img src="./img/avatar.jpg"/></a>
+            <h2>Edwin Delgado</h2>
+            <p>
+              I do not recall how I came into existence.
+              <br>
+              Something to do with my dad and mom.
+            </p>
+          </div>
+          <div class = 'stats cf'>
+            <a href = "#" class = "state"><strong>1,11</strong>tweets</a>
+            <a href = "#" class = "state"><strong>1,11</strong>tweets</a>
+            <a href = "#" class = "state"><strong>1,11</strong>tweets</a>
+          </div>
+          <ul class = 'menu cf'>
+            <li>
+              <a href = "#" class = "ico-compose">compose</a>
+            </li>
+            <li>
+              <a href = "#" class = "ico-mentions">mentions</a>
+            </li>
+            <li>
+              <a href = "#" class = "ico-profile">profile</a>
+            </li>
+            <li>
+              <a href = "#" class = "ico-settings">settings</a>
+            </li>
+          </ul>
+      </div>
+  </body>
+</html>
